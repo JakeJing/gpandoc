@@ -27,4 +27,8 @@ On mac, you can directly click the *.otf file to install the font.
 
 Note: all these additional files can be found in the my google drive (gpandoc-test/utilities/), need to be put in the right directory.
 
-## add the template file.gdoc. This will be the original file you need to share with ur collaborators. 
+## 8. add the template file.gdoc. This will be the original file you need to share with ur collaborators. 
+
+## 9. After all these setups, you still need a bash file (compile.sh, make it executable) to download from the gdoc to raw text and compile it into the latex and pdf.
+> ./compile.sh   (thsi file should be put in the main directory of ur project.)
+
