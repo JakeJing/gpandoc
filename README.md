@@ -30,5 +30,7 @@ Note: all these additional files can be found in the my google drive (gpandoc-te
 ## 8. add the template file.gdoc. This will be the original file you need to share with ur collaborators. 
 
 ## 9. After all these setups, you still need a bash file (compile.sh, make it executable) to download from the gdoc to raw text and compile it into the latex and pdf.
-> ./compile.sh   (thsi file should be put in the main directory of ur project.)
+> ./compile.sh   (this file should be put in the main directory of ur project.)
+
+I strongly suggest you to run the commands from compile.sh line by line, and test whether there is any error or not. If everything works well, you may be able to enjoy using the google doc, and easily convert it into many other formats.
 
