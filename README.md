@@ -1,36 +1,45 @@
 # gpandoc
-This repository is used to set up the gpandoc for proofreading or collaborations (the major settings and some template files come from Balthasar and Taras). Here I just write down the concrete procedures for install all the softwares and build the whole environment based on macbook v10.14.6.
+This repository is used to compile `.gdoc` files into other formats (`.pdf`, `.tex`, and `.md`) via pandoc. The major idea is to make full use of the platform in google doc for editing, suggesting and discussing manuscripts in your project. Most templates and scripts come from Balthasar and Taras. Here I just summarize the important steps for installing the necessary softwares and deploying the environment for mac users.
 
-## 1. install latex or mactex (http://www.tug.org/mactex/)
+### 1. install latex or mactex (http://www.tug.org/mactex/)
 
-## 2. install "pandoc" >= 2.1 (best via installer package, e.g. https://pandoc.org/installing.html)
+### 2. install pandoc (best via installer package, e.g. https://pandoc.org/installing.html)
 
-## 3. install "homebrew" (best as described in https://brew.sh)
+### 3. install homebrew (best as described in https://brew.sh)
 
-## 4. install gnu-sed and gdrive via brew
+### 4. install gnu-sed and gdrive via brew
 
-> brew install gnu-sed
+```bash
+brew install gnu-sed
+brew install gdrive
+gdrive about 
+# test the gdrive, and it may require verification. Just follow the instructions from the screen.
+```
 
-> brew install gdrive
+### 5. install fonts of Libertinus Serif
 
-> gdrive about  (text the gdrive, you may need to verify the gdrive. Just follow the commands from the instructions from the screen.)
+```bash
+git clone https://github.com/alif-type/libertinus.git
+```
 
-## 5. install fonts of Libertinus Serif
+On mac, you can directly click the `*.otf` file to install the font.
 
-> git clone https://github.com/alif-type/libertinus.git
+### 6. add simple latex template (`simple.latex`) to the directory ~/.pandoc/templates/ (create the directory if doesn't exist yet!)
 
-On mac, you can directly click the *.otf file to install the font.
+### 7. add the `glosses.py` and `pandocfilters.py` to /usr/local/bin (but make them executable first!)
 
-## 6. add simple latex template (simple.latex) to the directory ~/.pandoc/templates/ (create the directory if doesn't exist yet!). 
+```bash
+chmod +x *.py
+```
 
-## 7. add the glosses.py and pandocfilters.py in /usr/local/bin (but make them executable first!)
+### 8. create a [sample.gdoc](https://docs.google.com/document/d/1xOjDwPo2gGC3dM5DeT30H_-r7ZeYV0wBQsoxCKAhAmI/edit?usp=sharing) file in your google drive. This will be the original file you need to share with your collaborators. 
 
-Note: all these additional files can be found in the my google drive (gpandoc-test/utilities/), need to be put in the right directory.
+### 9. After all these setups, you still need a bash file (`compile.sh`) to extract gdoc text and compile it into pdf.
 
-## 8. add the template file.gdoc. This will be the original file you need to share with ur collaborators. 
+```bash
+./compile.sh 
+# this file should be put in the main directory of your project.
+```
 
-## 9. After all these setups, you still need a bash file (compile.sh, make it executable) to download from the gdoc to raw text and compile it into the latex and pdf.
-> ./compile.sh   (this file should be put in the main directory of ur project.)
-
-I strongly suggest you to run the commands from compile.sh line by line, and test whether there is any error or not. If everything works well, you may be able to enjoy using the google doc, and easily convert it into many other formats.
+I strongly suggest you to first test the commands in `compile.sh` line by line, and see whether there is any error. **Note:** you need to change the id of your gdoc file in `compile.sh`. If everything works well, you are ready to go. Enjoy it!
 
