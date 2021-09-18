@@ -24,10 +24,10 @@ git clone https://github.com/alif-type/libertinus.git
 
 On mac, you can directly click the `*.otf` file to install the font.
 
-### 6. add simple latex template (`simple.latex` and `sample_format.latex`) to the directory ~/.pandoc/templates/ (create the directory if doesn't exist yet!)
+### 6. add simple latex template (`simple.latex` and `simple_format.latex`) to the directory ~/.pandoc/templates/ (create the directory if doesn't exist yet!)
 
-- `sample.latex` is used for the first submission of your manuscript;
-- `sample_format.latex` is used for the final submission of your manuscript;
+- `simple.latex` is used for the first submission of your manuscript;
+- `simple_format.latex` is used for the final submission of your manuscript;
 
 ### 7. add the `glosses.py` and `pandocfilters.py` to /usr/local/bin (but make them executable first!)
 
