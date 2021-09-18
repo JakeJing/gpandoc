@@ -1,0 +1,182 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath,standalone}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={My Template for Reformating a Research Article},
+  pdfauthor={Yingqi Jing},
+  pdfkeywords={Word order typology, language evolution},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{mathtools, makecell, tikz}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+%%%% citation %%%%%
+\usepackage{xpatch}
+\usepackage[style=authoryear-comp, % compressed form (e.g., Gibson 1998, 2000)
+	backend=biber,
+	dashed=false, % avoid hide duplicated names in References
+	sorting = none,
+	maxcitenames=3,
+	uniquelist=false, uniquename=false,
+	maxbibnames=99]{biblatex}
+%\usepackage[]{biblatex}
+\addbibresource{/Users/jakejing/switchdrive/bib/references.bib}
+
+%%%% load packages %%%%
+\usepackage{gb4e}
+\noautomath
+\usepackage{standalone}
+\usepackage{threeparttablex}
+\usepackage{longtable}
+\usepackage{amsmath} 
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{upgreek}
+\usepackage{float}
+\usepackage{multirow}
+
+
+
+%%%% define dimensions and margins %%%%
+\usepackage[letterpaper,margin=1in]{geometry}
+
+%%%% title page %%%%
+\usepackage{authblk}
+\title{\normalfont\normalsize My Template for Reformating a Research Article}
+\frenchspacing
+\author[1]{\normalsize Yingqi Jing}
+%\author[2, 5]{\normalsize  Dami\'an E. Blasi}
+%\author[3]{\normalsize Balthasar Bickel}
+\affil[1]{Uppsala University; \href{mailto:yingqi.jing@lingfil.uu.se}{\nolinkurl{yingqi.jing@lingfil.uu.se}}}
+%\affil[2]{University of Zurich; dblasi@fas.harvard.edu}
+%\affil[3]{University of Zurich; balthasar.bickel@uzh.ch}
+%\affil[4]{Uppsala University}
+%\affil[5]{Harvard University}
+\date{} 
+
+\setcounter{page}{0} 
+
+% Keywords command
+\providecommand{\keywords}[1]
+{\normalsize	
+  \textbf{Keywords:} #1
+}
+
+\begin{document}
+
+\maketitle
+
+%%%% abstract %%%%%%
+%\clearpage\mbox{}\thispagestyle{empty}\clearpage
+\clearpage
+\renewcommand{\abstractname}{\normalsize Abstract}
+\begin{abstract}
+% acknowledgement
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}%
+\normalsize This is the abstract of the paper. An abstract summarizes, usually in
+one paragraph of 300 words or less, the major aspects of the entire
+paper in a prescribed sequence that includes: 1) the overall purpose of
+the study and the research problem(s) you investigated; 2) the basic
+design of the study; 3) major findings or trends found as a result of
+your analysis; and, 4) a brief summary of your interpretations and
+conclusions.\footnote{I would like to first thank.}
+\setcounter{footnote}{0}
+\end{abstract}
+
+\vspace{\baselineskip}
+\setlength\parindent{24pt}
+\keywords{Word order typology, language evolution}
+
+%{Keywords: Word order typology, language evolution}
+
+%%\renewcommand{\abstractname}{Acknowledgments}
+%\begin{abstract}
+%I would like to first thank.
+%\end{abstract}
+%\clearpage\mbox{}\thispagestyle{empty}\clearpage
+%% \pagestyle{empty}
+%% \thispagestyle{empty}
+%% \newpage
+%
+
+
+\clearpage
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+You can also load the cached file, \textcite{Greenberg1963} check the
+environment to see whether the variables have already been saved
+\autocite{Dryer1992}.
+
+In self-paced reading, the verb is read faster in such examples when it
+follows the semantically rich and complex noun phrase in
+\ref{ex-german}a (``the book that Lisa bought yesterday'') than when it
+follows the short object noun phrase ``the book'' in \ref{ex-german}b,
+where the relative clause is extraposed \autocite{Konieczny2000}.
+
+\begin{exe} \ex Expectation-based facilitation in German \label{ex-german}
+\begin{xlist}
+\ex \gll Er hat das Buch, [das Lisa gestern gekauft hatte], hingelegt.\\
+         he has the book that Lisa yesterday bought had laid.down\\
+\ex  \gll Er hat das Buch hingelegt, [das Lisa gestern gekauft hatte].\\
+        he has the book laid.down that Lisa yesterday bought had\\
+       \glt ‘He has laid down the book that Lisa had bought yesterday.’ 
+\end{xlist}
+\end{exe}
+
+\printbibliography[title=References]
+
+
+\end{document}
