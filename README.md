@@ -24,7 +24,10 @@ git clone https://github.com/alif-type/libertinus.git
 
 On mac, you can directly click the `*.otf` file to install the font.
 
-### 6. add simple latex template (`simple.latex`) to the directory ~/.pandoc/templates/ (create the directory if doesn't exist yet!)
+### 6. add simple latex template (`simple.latex` and `sample_format.latex`) to the directory ~/.pandoc/templates/ (create the directory if doesn't exist yet!)
+
+- `sample.latex` is used for the first submission of your manuscript;
+- `sample_format.latex` is used for the final submission of your manuscript;
 
 ### 7. add the `glosses.py` and `pandocfilters.py` to /usr/local/bin (but make them executable first!)
 
@@ -34,11 +37,13 @@ chmod +x *.py
 
 ### 8. create a [sample.gdoc](https://docs.google.com/document/d/1xOjDwPo2gGC3dM5DeT30H_-r7ZeYV0wBQsoxCKAhAmI/edit?usp=sharing) file in your google drive. This will be the original file you need to share with your collaborators. 
 
-### 9. After all these setups, you still need a bash file (`compile.sh`) to extract gdoc text and compile it into pdf.
+### 9. After all these setups, you still need a bash file (`compile.sh` and `compile_format.sh`) to extract gdoc text and compile it into pdf.
 
 ```bash
 ./compile.sh 
 # this file should be put in the main directory of your project.
+./compile_format.sh 
+# for compile the final version
 ```
 
 I strongly suggest you to first test the commands in `compile.sh` line by line, and see whether there is any error. **Note:** you need to change the id of your gdoc file in `compile.sh`. If everything works well, you are ready to go. Enjoy it!

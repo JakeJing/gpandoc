@@ -2,7 +2,7 @@
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
-\usepackage[a4paper,margin=$if(margin)$$margin$$else$2.5cm$endif$]{geometry}  
+\usepackage[a4paper,margin=$if(margin)$$margin$$else$2.5cm$endif$]{geometry}
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{sectsty}
@@ -14,7 +14,7 @@ $else$
 \usepackage{lmodern}
 $endif$
 
-\usepackage[dvipsnames]{xcolor} 
+\usepackage[dvipsnames]{xcolor}
 \usepackage{colortbl}
 
 \renewenvironment{quote}
@@ -148,7 +148,19 @@ $if(natbib)$
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
 $endif$
 $if(biblatex)$
-\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+%%%% citation %%%%%
+\usepackage{xpatch}
+\usepackage[style=authoryear-comp, % compressed form (e.g., Gibson 1998, 2000)
+	backend=biber,
+	dashed=false, % avoid hide duplicated names in References
+	sorting = none,
+	maxcitenames=3,
+	uniquelist=false, uniquename=false,
+	maxbibnames=99]{biblatex}
+\renewbibmacro{in:}{} % remove in: for journal articles in bibliography
+\DeclareFieldFormat[article, inbook,incollection,inproceedings]{title}{#1} % remove the quotation for title in bibliography
+\DeclareFieldFormat[thesis]{title}{\mkbibitalic{#1}}
+\DeclareFieldFormat[article, inbook,incollection,inproceedings]{pages}{#1} %remove pp. in bibliography
 $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
@@ -267,12 +279,12 @@ $endif$
 \date{$date$}
 
 \begin{document}
-\thispagestyle{empty}	
+\thispagestyle{empty}
 $if(title)$
 % \maketitle
 $if(subtitle)$\hrule$endif$
-\begin{center}	
-{\doublespacing	
+\begin{center}
+{\doublespacing
 {\Large\sffamily\bfseries{$title$}}\\[6pt]
 $if(subtitle)${\Large\sffamily{--- $subtitle$ ---}}\\[6pt]$endif$
 $if(author)${\large\sf $author$}\\$endif$
@@ -330,7 +342,6 @@ $endif$
 $endif$
 $if(biblatex)$
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
 $endif$
 $for(include-after)$
 $include-after$
