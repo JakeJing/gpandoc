@@ -6,7 +6,7 @@ gsed -e '0,/BEGINFILE/d' -e '/ENDFILE/,$d' sample.txt | sed -e '/_______________
 
 rm sample.txt
 
-pandoc --template=simple_format.latex --pdf-engine=xelatex --biblatex -F /usr/local/bin/glosses.py -F pandoc-citeproc -M secPrefix=Section -N main.txt -o mainr.tex 2> pandoc-errors.txt
+pandoc --lua-filter=lua-filters/scholarly-metadata/scholarly-metadata.lua --lua-filter=lua-filters/author-info-blocks/author-info-blocks.lua --template=./templates/simple_format.latex --pdf-engine=xelatex --biblatex -F /usr/local/bin/glosses.py -F pandoc-citeproc -M secPrefix=Section -N main.txt -o mainr.tex 2> pandoc-errors.txt
 
 
 sed -e 's/\\leavevmode/\\leavevmode\\hangindent=.7cm/g' mainr.tex | gsed -e 's/.*\hypertarget{references}.*/%TC:ignore\n\n&/' -e 's/.*\end{document}.*/%TC:endignore\n&/' > main.tex

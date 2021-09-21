@@ -39,11 +39,12 @@ chmod +x *.py
 
 ### 9. After all these setups, you still need a bash file (`compile.sh` and `compile_format.sh`) to extract gdoc text and compile it into pdf.
 
+You need to put the `compile.sh` or `compile_format.sh` into the same directory of your gdoc file. **Note:** if you want to edit the authors' information, you can edit the template files (**templates/simple.latex** or **templates/simple_format.latex**).
+
 ```bash
-./compile.sh 
-# this file should be put in the main directory of your project.
-./compile_format.sh 
-# for compile the final version
+./compile.sh # first submission (annonymous)
+
+./compile_format.sh # final submission (with title page)
 ```
 
 I strongly suggest you to first test the commands in `compile.sh` line by line, and see whether there is any error. **Note:** you need to change the id of your gdoc file in `compile.sh`. If everything works well, you are ready to go. Enjoy it!

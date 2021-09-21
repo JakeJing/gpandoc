@@ -411,19 +411,22 @@ $endif$
 \setlength{\parindent}{0pt}
 
 %%%% title page %%%%
+$if(title)$
+\title{\Large\sffamily\bfseries{$title$}$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(author)$
 \usepackage{authblk}
-\title{\normalfont\normalsize $title$}
 \frenchspacing
-\author[1]{\normalsize $author$}
-%\author[2, 5]{\normalsize  Dami\'an E. Blasi}
-%\author[3]{\normalsize Balthasar Bickel}
-\affil[1]{$institute$; $email$}
-%\affil[2]{University of Zurich; dblasi@fas.harvard.edu}
-%\affil[3]{University of Zurich; balthasar.bickel@uzh.ch}
-%\affil[4]{Uppsala University}
-%\affil[5]{Harvard University}
+\author[1, 4]{\normalsize Yingqi Jing}
+\author[2, 5]{\normalsize  Dami\'an E. Blasi}
+\author[3]{\normalsize Balthasar Bickel}
+\affil[1]{University of Zurich; yingqi.jing@uzh.ch}
+\affil[2]{University of Zurich; damian.blasi@uzh.ch}
+\affil[3]{University of Zurich; balthasar.bickel@uzh.ch}
+\affil[4]{Uppsala University}
+\affil[5]{Harvard University}
 \date{}
-
+$endif$
 \setcounter{page}{0}
 
 % Keywords command
@@ -432,43 +435,22 @@ $endif$
 }
 
 \begin{document}
-
 \maketitle
 
 %%%% abstract %%%%%%
 $if(abstract)$
-%\clearpage\mbox{}\thispagestyle{empty}\clearpage
-\clearpage
-\renewcommand{\abstractname}{\normalsize Abstract}
+\newpage
 \begin{abstract}
-% acknowledgement
-$if(thanks)$
-\renewcommand*{\thefootnote}{\fnsymbol{footnote}}%
-\normalsize $abstract$\footnote{$thanks$}
-\setcounter{footnote}{0}
-$else$
-\normalsize $abstract$
-$endif$
+$abstract$
 \end{abstract}
-
 \vspace{\baselineskip}
 %\setlength\parindent{24pt}
 $if(keywords)$
 \keywords{$keywords$}
 $endif$
-
 $endif$
 
-%$if(thanks)$
-%\renewcommand{\abstractname}{Acknowledgments}
-%\begin{abstract}
-%$thanks$
-%\end{abstract}
-%\clearpage\mbox{}\thispagestyle{empty}\clearpage
-%% \pagestyle{empty}
-%% \thispagestyle{empty}
-%% \newpage
-%$endif$
+
 
 $for(include-before)$
 $include-before$
