@@ -431,7 +431,7 @@ $endif$
 
 % Keywords command
 \providecommand{\keywords}[1]
-{\normalsize \textit{Keywords:} #1
+{\small \textit{Keywords:} #1
 }
 
 \begin{document}
@@ -443,14 +443,13 @@ $if(abstract)$
 \begin{abstract}
 $abstract$
 \end{abstract}
-\vspace{\baselineskip}
+% \vspace{\baselineskip}
 %\setlength\parindent{24pt}
+$endif$
+
 $if(keywords)$
-\keywords{$keywords$}
+\setlength\parindent{24pt} \keywords{$keywords$}
 $endif$
-$endif$
-
-
 
 $for(include-before)$
 $include-before$
