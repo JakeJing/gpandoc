@@ -35,7 +35,7 @@ On mac, you can directly click the `*.otf` file to install the font.
 chmod +x *.py
 ```
 
-### 8. create a [sample.gdoc](https://docs.google.com/document/d/1xOjDwPo2gGC3dM5DeT30H_-r7ZeYV0wBQsoxCKAhAmI/edit?usp=sharing) file in your google drive. This will be the original file you need to share with your collaborators. 
+### 8. create a [sample_paper.gdoc](https://docs.google.com/document/d/1xOjDwPo2gGC3dM5DeT30H_-r7ZeYV0wBQsoxCKAhAmI/edit?usp=sharing) file in your google drive. This will be the original file you need to share with your collaborators. 
 
 ### 9. After all these setups, you still need a bash file (`compile.sh` and `compile_format.sh`) to extract gdoc text and compile it into pdf.
 
