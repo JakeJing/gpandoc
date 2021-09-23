@@ -2,11 +2,11 @@
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
-\usepackage[a4paper,margin=$if(margin)$$margin$$else$2.5cm$endif$]{geometry}
+\usepackage[a4paper,margin=$if(margin)$$margin$$else$2.8cm$endif$]{geometry}
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{sectsty}
-		\allsectionsfont{\sffamily\bfseries\normalsize} % section header sizes
+		\allsectionsfont{\bfseries\normalsize} % section header sizes \sffamily
 
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
@@ -14,23 +14,46 @@ $else$
 \usepackage{lmodern}
 $endif$
 
-\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
 \usepackage{colortbl}
+
+\usepackage[labelfont=bf]{caption}
+\captionsetup{margin=1cm}
+		% \captionsetup{justification=centering} % or font=small, labelfont=bf etc.
+		% \setlength{\abovecaptionskip}{5pt} % caption offset
+		% if captions are too long for a table, squeeze their space by \captionsetup{margin=2cm} inside the local environment (e.g. table)
 
 \renewenvironment{quote}
   {\list{}{\rightmargin=0cm \leftmargin=.5cm}%
    \item\relax}
   {\endlist}
 
-\usepackage{setspace}
 $if(linestretch)$
+\usepackage{setspace}
 \setstretch{$linestretch$}
+$else$\setstretch{1.2}
 $endif$
 
-\usepackage[compact]{titlesec} % left margin, above-skip and below-kip
-\titlespacing{\section}{0pt}{8pt}{0pt}
-\titlespacing{\subsection}{0pt}{8pt}{0pt}
-\titlespacing{\subsubsection}{0pt}{6pt}{-3pt}
+\skip\footins 20pt plus4pt minus4pt
+\setlength{\footnotesep}{10pt}
+\usepackage[hang,flushmargin]{footmisc}\renewcommand{\footnotemargin}{\ifnum\value{footnote}<10 5pt \else 9pt\fi}
+
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}\setlength{\parskip}{0pt}}\ignorespaces}%
+  {\par}
+
+
+% \usepackage[compact]{titlesec} % left margin, above-skip and below-kip
+% \titlespacing{\section}{0pt}{8pt}{0pt}
+% \titlespacing{\subsection}{0pt}{8pt}{0pt}
+% \titlespacing{\subsubsection}{0pt}{6pt}{-3pt}
 % \titlespacing{\subsubsubsubsection}{0pt}{3pt}{-3pt}
 % % \titlespacing{\subsubsubsubsection}{0pt}{3pt}{-3pt}
 % \titleformat{\subsubsubsubsection}[runin]{\normalfont\bfseries}{\S\ \thesection.}{.5em}{}[. ]
@@ -275,10 +298,13 @@ $if(subtitle)$\hrule$endif$
 {\doublespacing
 {\Large\sffamily\bfseries{$title$}}\\[6pt]
 $if(subtitle)${\Large\sffamily{--- $subtitle$ ---}}\\[6pt]$endif$
-$if(author)${\large\sf $author$}\\$endif$
-$if(affiliation)${\large\sf $affiliation$}\\$endif$
-$if(date)${\large\sf $date$}$endif$
+$if(author)${\normalsize $for(author)$$author$$sep$, $endfor$}
+\\$endif$ % \sf
 }
+$if(affiliation)${\vspace{\baselineskip}\small $for(affiliation)$$affiliation$$sep$, $endfor$}$endif$
+$if(date)${\large $date$}$endif$
+
+
 \end{center}
 $if(subtitle)$
 \vspace{6pt}
@@ -289,9 +315,10 @@ $endif$
 
 $endif$
 $if(abstract)$
+\vspace{\baselineskip}
 \begin{abstract}
 $abstract$
-\end{abstract}
+\end{abstract}\vspace{2\baselineskip}
 $endif$
 
 $for(include-before)$

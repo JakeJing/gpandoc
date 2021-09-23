@@ -411,23 +411,23 @@ $endif$
 \setlength{\parindent}{0pt}
 
 %%%% title page %%%%
-% $if(title)$
-% \title{\Large\sffamily\bfseries{$title$}$if(thanks)$\thanks{$thanks$}$endif$}
-% $endif$
-% $if(author)$
-% \usepackage{authblk}
-% \frenchspacing
-% \author[1, 4]{\normalsize Yingqi Jing}
-% \author[2, 5]{\normalsize  Dami\'an E. Blasi}
-% \author[3]{\normalsize Balthasar Bickel}
-% \affil[1]{University of Zurich; yingqi.jing@uzh.ch}
-% \affil[2]{University of Zurich; damian.blasi@uzh.ch}
-% \affil[3]{University of Zurich; balthasar.bickel@uzh.ch}
-% \affil[4]{Uppsala University}
-% \affil[5]{Harvard University}
-% \date{}
-% $endif$
-% \setcounter{page}{0}
+$if(title)$
+\title{\Large\sffamily\bfseries{$title$}$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(author)$
+\usepackage{authblk}
+\frenchspacing
+\author[1, 4]{\normalsize Yingqi Jing}
+\author[2, 5]{\normalsize  Dami\'an E. Blasi}
+\author[3]{\normalsize Balthasar Bickel}
+\affil[1]{University of Zurich; yingqi.jing@uzh.ch}
+\affil[2]{University of Zurich; damian.blasi@uzh.ch}
+\affil[3]{University of Zurich; balthasar.bickel@uzh.ch}
+\affil[4]{Uppsala University}
+\affil[5]{Harvard University}
+\date{}
+$endif$
+\setcounter{page}{0}
 
 % Keywords command
 \providecommand{\keywords}[1]
@@ -435,36 +435,7 @@ $endif$
 }
 
 \begin{document}
-% \maketitle
-\thispagestyle{empty}
-$if(title)$
-% \maketitle
-$if(subtitle)$\hrule$endif$
-\begin{center}
-{\doublespacing
-{\Large\sffamily\bfseries{$title$}}
-$if(thanks)$
-% \renewcommand*{\thefootnote}{}%
-\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
-\footnote{$thanks$}
-$endif$
-
-$if(subtitle)${\Large\sffamily{--- $subtitle$ ---}}\\[6pt]$endif$
-$if(author)${\normalsize $for(author)$$author$$sep$, $endfor$}$endif$
-
-}
-$if(affiliation)${\vspace{\baselineskip}\small $for(affiliation)$$affiliation$$sep$, $endfor$}$endif$
-$if(date)${\large $date$}$endif$
-\end{center}
-$if(subtitle)$
-\vspace{6pt}
-\hrule
-$endif$
-\vspace{6pt}
-
-$endif$
-
-\setcounter{footnote}{0}
+\maketitle
 
 %%%% abstract %%%%%%
 $if(abstract)$

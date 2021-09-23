@@ -41,6 +41,8 @@ chmod +x *.py
 
 You need to put the `compile.sh` or `compile_format.sh` into the same directory of your gdoc file. **Note:** if you want to edit the authors' information, you can edit the template files (**templates/simple.latex** or **templates/simple_format.latex**).
 
+The major difference between `simple.latex` and `simple_reformat.latex` is that the reformated version is much easier to customize the references, since it is produced via `printbibliography`.
+
 ```bash
 ./compile.sh # first submission (annonymous)
 
