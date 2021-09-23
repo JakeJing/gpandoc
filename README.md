@@ -35,18 +35,22 @@ On mac, you can directly click the `*.otf` file to install the font.
 chmod +x *.py
 ```
 
-### 8. create a [sample_paper.gdoc](https://docs.google.com/document/d/1xOjDwPo2gGC3dM5DeT30H_-r7ZeYV0wBQsoxCKAhAmI/edit?usp=sharing) file in your google drive. This will be the original file you need to share with your collaborators. 
+### 8. create a [sample_paper.gdoc](https://docs.google.com/document/d/1xOjDwPo2gGC3dM5DeT30H_-r7ZeYV0wBQsoxCKAhAmI/edit?usp=sharing) and [sample_slides.doc](https://docs.google.com/document/d/1jiv7N8dlnIJcZDc-JV80rKkC7VRKTd3pyyn7PByk2Ms/edit) in your google drive. These are the original files you need to share with your collaborators. 
 
-### 9. After all these setups, you still need a bash file (`compile.sh` and `compile_format.sh`) to extract gdoc text and compile it into pdf.
+### 9. After all these setups, you still need a bash file (`compile.sh`, `compile_format.sh` and `slides.sh`) to extract gdoc text and compile it into pdf.
 
 You need to put the `compile.sh` or `compile_format.sh` into the same directory of your gdoc file. **Note:** if you want to edit the authors' information, you can edit the template files (**templates/simple.latex** or **templates/simple_format.latex**).
 
 The major difference between `simple.latex` and `simple_reformat.latex` is that the reformated version is much easier to customize the references, since it is produced via `printbibliography`.
 
+For `slides.sh`, the default theme is **metroplis**, and you can specify other themes.
+
 ```bash
 ./compile.sh # first submission (annonymous)
 
 ./compile_format.sh # final submission (with title page)
+
+./slides.sh # compile it into a pdf slide
 ```
 
 I strongly suggest you to first test the commands in `compile.sh` line by line, and see whether there is any error. **Note:** you need to change the id of your gdoc file in `compile.sh`. If everything works well, you are ready to go. Enjoy it!
