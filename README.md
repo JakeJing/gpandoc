@@ -43,7 +43,7 @@ You need to put the `compile.sh` or `compile_format.sh` into the same directory 
 
 The major difference between `simple.latex` and `simple_reformat.latex` is that the reformated version is much easier to customize the references, since it is produced via `printbibliography`.
 
-For `slides.sh`, the default theme is **metroplis**, and you can specify other themes.
+For `slides.sh`, the default theme is **metroplis**, and you can specify other [themes and colorthemes](https://hartwork.org/beamer-theme-matrix/).
 
 ```bash
 ./compile.sh # first submission (annonymous)

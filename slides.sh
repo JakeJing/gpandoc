@@ -8,7 +8,13 @@ gsed -e '0,/BEGINFILE/d' -e '/ENDFILE/,$d' sample_slides.txt | sed -e '/________
 
 rm sample_slides.txt
 
-pandoc -t beamer -V theme:metropolis -V themeoptions:numbering=fraction -V themeoptions:progressbar=foot --pdf-engine=xelatex main.txt -o main.pdf
+pandoc -t beamer --pdf-engine=xelatex main.txt -o main.pdf
+
+# themes:metropolis, moon
+
+
+
+# pandoc -t beamer -V theme:metropolis -V themeoptions:numbering=fraction -V themeoptions:progressbar=foot --pdf-engine=xelatex main.txt -o main.pdf
 
 open main.pdf
 

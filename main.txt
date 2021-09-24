@@ -1,0 +1,49 @@
+
+
+---
+title: | 
+      | A slide show
+      | 
+      | -- March 2020 --
+header-includes: 
+theme: JuanLesPins
+colortheme: beaver
+---
+<!-- \tableofcontents -->
+<!-- comment this out when de-sliding -->
+
+# Topic 1
+
+## Slide 1
+
+:::incremental
+- some stuff
+   - item 1
+   - very complicated and deeply involved issues that need terribly long text that no one will read in the end
+   - item 2
+
+- more stuff
+
+- and even more!
+:::
+
+
+## Add-on grants
+
+
+- We can \textcolor{red}{color text} in latex style
+
+# Theme 2
+
+## More slides
+
+
+- Librarian
+\pause
+- Collaboration 
+\pause
+- 2 major collections
+\pause
+- Locations
+
+
