@@ -10,7 +10,9 @@ rm sample_slides.txt
 
 pandoc -t beamer --pdf-engine=xelatex main.txt -o main.pdf
 
+# --template=./templates/default_mod.latex -H ./templates/preamble.tex
 # themes:metropolis, moon
+# --include-in-header=./templates/mystyle.tex
 
 
 
