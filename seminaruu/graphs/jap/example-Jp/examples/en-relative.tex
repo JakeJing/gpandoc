@@ -1,0 +1,20 @@
+%\documentclass[12pt,a4j]{article}
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+%\usepackage{zxjatype}
+%\usepackage{lingmacros}
+%\usepackage{etc}
+
+\begin{document}
+ 
+\begin{dependency}[theme = simple, arc edge, arc angle=70, text only label, label style={above, font = \footnotesize} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	she \&  knew \& the \& boy \& who \& rode \& the \& bike \\
+\end{deptext}
+	\depedge{2}{4}{}
+	\depedge{4}{6}{}
+	\depedge{6}{8}{}
+\end{dependency}
+
+\end{document}

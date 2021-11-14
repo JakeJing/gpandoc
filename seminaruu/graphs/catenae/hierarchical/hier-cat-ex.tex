@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+\usepackage{subcaption}
+\begin{document}
+
+
+\begin{dependency}[theme = simple, arc edge, arc angle=50, text only label, label style={above, font = \small} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	 \scriptsize{fit} \& \scriptsize{into}\& \scriptsize{certain}   \&  \scriptsize{parts} \\
+\end{deptext}
+	%\deproot{4}{root}
+	\depedge{1}{4}{3}
+	\depedge{4}{3}{1}
+\end{dependency}
+
+
+\centering
+\begin{dependency}[theme = simple, arc edge, arc angle=40, text only label, label style={above, font = \small} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	 \scriptsize{fit}  \& \scriptsize{into} \&  \scriptsize{certain} \& \scriptsize{parts} \&  \scriptsize{of} \&  \scriptsize{the} \& \scriptsize{article}  \\
+\end{deptext}
+	%\deproot{4}{root}
+	\depedge{1}{4}{3}
+	\depedge{4}{7}{3}
+\end{dependency}
+ 
+\end{document}

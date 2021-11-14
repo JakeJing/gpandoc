@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+\begin{document}
+ 
+\begin{dependency}[theme = simple, arc edge, arc angle=90, text only label, label style={above, font = \footnotesize} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	the \&  man \& singing \& a \& song \\
+\end{deptext}
+	%\deproot{4}{root}
+	\depedge{2}{3}{}
+	\depedge{3}{5}{}
+	%\depedge[edge style = {red}]{2}{4}{}
+\end{dependency}
+\end{document}

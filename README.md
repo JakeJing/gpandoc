@@ -3,6 +3,13 @@ This repository is used to compile `.gdoc` files into other formats (`.pdf`, `.t
 
 ### 1. install latex or mactex (http://www.tug.org/mactex/)
 
+You may need to add the path of latex or xelatex in your path, like .bashrc or config.fish.
+
+```bash
+which latex
+which xelatex
+```
+
 ### 2. install pandoc (best via installer package, e.g. https://pandoc.org/installing.html)
 
 ### 3. install homebrew (best as described in https://brew.sh)
@@ -22,7 +29,7 @@ gdrive about
 git clone https://github.com/alif-type/libertinus.git
 ```
 
-On mac, you can directly click the `*.otf` file to install the font.
+On mac, you can directly click the `*.otf` file to install the font (font/LibertinusSerif-Regular.otf).
 
 ### 6. add simple latex template (`simple.latex` and `simple_format.latex`) to the directory ~/.pandoc/templates/ (create the directory if doesn't exist yet!)
 

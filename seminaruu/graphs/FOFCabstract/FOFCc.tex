@@ -1,0 +1,19 @@
+%\documentclass[12pt,a4j]{article}
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+%\usepackage{zxjatype}
+%\usepackage{lingmacros}
+%\usepackage{etc}
+
+\begin{document}
+ 
+\begin{dependency}[theme = simple, arc edge, arc angle=70, text only label, label style={above, font = \footnotesize} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	C \&[0.2cm]  B \&[0.2cm] A \\
+\end{deptext}
+	\depedge{2}{1}{}
+	\depedge{3}{2}{}
+\end{dependency}
+
+\end{document}

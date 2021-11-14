@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+\usepackage{subcaption}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shapes.arrows}
+\begin{document}
+
+\begin{dependency}[theme = simple, arc edge, arc angle=90, text only label, label style={above, font = \small} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	 \scriptsize{ADV} \&  \scriptsize{VERB} \& \scriptsize{ADV} \& \scriptsize{AUX} \\
+\end{deptext}
+	%\deproot{4}{root}
+	\depedge{2}{1}{}
+	\depedge[edge style = {dotted}]{4}{2}{}
+	\depedge [edge style = {red}]{2}{3}{}
+\draw [->, line width=0.05cm, blue, -{Latex[blue, length=2mm, width=2mm]}] (1.7,0.3) -- (2.1,0.3);
+\end{dependency}
+\centering
+
+%\begin{tikzpicture}
+% \node [scale=0.5, single arrow, top color=blue,bottom color=blue]{\hphantom{cha}};
+%\draw [->, thick, blue] (0,10) -- (1,10);
+%\draw[color=blue, -{Latex[blue, length=1mm, width=2mm]}] (1.5, -0)--(2,-0) node[right]{};
+%\end{tikzpicture}
+
+\begin{dependency}[theme = simple, arc edge, arc angle=90, text only label, label style={above, font = \small} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	 \scriptsize{ADV} \& \scriptsize{ADV} \& \scriptsize{VERB} \& \scriptsize{AUX} \\
+\end{deptext}
+	%\deproot{4}{root}
+	\depedge{3}{1}{}
+	\depedge{3}{2}{}
+	\depedge [edge style = {dotted}]{4}{3}{}
+\end{dependency}
+
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+\usepackage{subcaption}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shapes.arrows}
+\begin{document}
+
+
+\begin{dependency}[theme = simple, arc edge, arc angle=90, text only label, label style={above, font = \small} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	  \scriptsize{NOUN} \&\scriptsize{VERB} \& \scriptsize{NOUN} \\
+\end{deptext}
+	%\deproot{4}{root}
+	\depedge{2}{3}{OBJ}
+	\depedge{1}{2}{REL}
+\end{dependency}
+
+
+\begin{dependency}[theme = simple, arc edge, arc angle=90, text only label, label style={above, font = \small} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	  \scriptsize{VERB} \&\scriptsize{NOUN} \& \scriptsize{NOUN} \\
+\end{deptext}
+	%\deproot{4}{root}
+	\depedge{3}{1}{REL}
+	\depedge[edge style = {red}]{1}{2}{OBJ}
+\end{dependency}
+
+\end{document}

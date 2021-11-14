@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+\begin{document}
+ 
+\begin{dependency}[theme = simple, arc edge, arc angle=90, text only label, label style={above, font = \footnotesize} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	a \&  new \& paper  \& easy \& to \& read  \\
+\end{deptext}
+	%\deproot{4}{root}
+	\depedge{3}{2}{}
+	\depedge{3}{4}{}
+	\wordgroup{1}{2}{2}{}
+	\wordgroup{1}{4}{6}{}
+\end{dependency}
+\end{document}

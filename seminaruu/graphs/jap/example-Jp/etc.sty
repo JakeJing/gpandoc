@@ -1,0 +1,128 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             細かいもの             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% 100以上の例文 %%%
+% \widelabel=7.78pt
+
+%%% 脚注の * を無くす %%%
+\def\thefootnote{\ifnum\c@footnote>\z@\kern0.1em\@arabic\c@footnote\fi}
+
+%%% 発表 %%%
+\newcommand{\hissha}{発表者}
+\newcommand{\honko}{本発表}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             グロスつけ             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \gl{Mari}{マリ.nom}
+% \gl{enekel}{歌う}
+% ↓
+% Mari      enekel
+% マリ.nom  歌う
+
+%%% \gl %%%
+\newcommand{\gl}[2]{{\baselineskip1.2em%
+   \leavevmode\vtop{\hbox{#1}%
+   \hbox{\footnotesize{#2}\lower1.8ex\rlap{ }}}} }
+
+%%% \Gl %%% グロスが二段
+\newcommand{\Gl}[3]{{\baselineskip1.2em%
+   \leavevmode\vtop{\hbox{#1}%
+   \hbox{\footnotesize{#2}\lower1.4ex\rlap{ } }%1.4ex
+   \hbox{\footnotesize{#3}\lower1.4ex\rlap{ } }%
+   \vspace*{.5ex}
+} }}
+
+%%% \ftntgl %%% 脚注用
+\newcommand{\ftntgl}[2]{{\baselineskip1.2em%
+   \leavevmode\vtop{\hbox{#1}%
+   \hbox{\scriptsize{#2}\lower1.8ex\rlap{ }}}} }
+
+%%% \ftntGl %%% 脚注用
+\newcommand{\ftntGl}[3]{{%
+   \leavevmode\vtop{\hbox{#1}%
+   \hbox{\scriptsize{#2‾}\lower1.4ex\rlap{ } }%
+   \hbox{\scriptsize{#3‾}\lower1.4ex\rlap{ } }%
+   \vspace*{.5ex}
+} }}
+
+
+%%% \flatgl %%% 本文中で平らに出力
+\newcommand{\flatgl}[2]{``#1'' ({\footnotesize{#2}})}
+
+%%% \fflatgl %%% 脚注用
+\newcommand{\fflatgl}[2]{``#1'' ({\scriptsize{#2}})}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              非文など              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\bad}{\leavevmode\llap{*}}			%*
+\newcommand{\quest}{\leavevmode\llap{${}^{?}$}}		%?
+\newcommand{\qquest}{\leavevmode\clap{${}^{??}$} }	%??
+\newcommand{\excl}{\leavevmode\llap{${}^{!}$}}		%!
+\newcommand{\eexcl}{\leavevmode\clap{${}^{!!‾‾}$}}	%!!
+\newcommand{\context}{\leavevmode\clap{${}^{\#}$‾}}	%#
+\newcommand{\bquest}{\leavevmode\clap{*${}^{?}$}‾‾}	%*?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        ラベル付き括弧標示          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% \lb %%%
+
+% \lb{XP}{...} --> [xp...]
+\newcommand{\lb}[2]{[$_{\mbox{\tiny{#1}}}$\,#2\,]}
+
+%%% \Index %%%
+
+% \In{Mari}{j} -> Mari_j
+\newcommand{\In}[2]{$\mbox{#1}_{\mbox{\scriptsize{\,#2}}}$}
+% \trace{j} -> t_j
+\newcommand{\trace}[1]{\In{\textit{t}}{#1}}
+
+%%% X-bar %%%
+% \Bar{X} --> X'
+\newcommand{\bbar}[1]{$\overline{\mbox{#1}}$}
+
+%\Bar -> \bbar 2013.2.20
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         小さめのタイトル           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% 場所も指定 !!! \usepackage{etc} よりも後で指定すること !!! %%%
+\def\@heldat{}
+\def\heldat#1{\def\@heldat{#1}}
+
+%%% small title %%%
+\def\makesmalltitle{%
+\def\@maketitle{\newpage
+ \null
+ \vskip .5em \begin{center}
+ {\Large \@title \par} \vskip .5em {\lineskip .5em
+\begin{tabular}[t]{c}\@author 
+ \end{tabular}\par} 
+ \vskip .5em {\@heldat~~~~\@date~~~~} \end{center}
+ \par
+ \vskip .5em} 
+\maketitle}
+
+%%% tiny title %%%
+\def\maketinytitle{%
+\def\@maketitle{\newpage\null
+{\small \@heldat \hfill \@date}
+\vskip .5em
+\begin{center}{\large \@title}\end{center}
+\hfil{\small \@author}\hfil}
+\maketitle}
+
+% paragraphの黒四角を消す（06 10 10 追加）
+% \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+ %   {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+%    {-2em}% 改行せず 2em のアキ
+%    {\normalfont\normalsize\headfont}}
+
+

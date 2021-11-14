@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+\begin{document}
+
+
+\begin{tikzpicture}[nodes={}, ->]
+\node{\scriptsize{fit}}
+    child [missing]
+    child { node {\scriptsize{parts}} 
+        child { node {\scriptsize{certain}} }
+    };
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,27 @@
+%\documentclass{article}
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+\usepackage{multirow}
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage[T1]{fontenc}
+
+
+
+
+\begin{document}
+
+\begin{table}
+   \begin{tabular}{c | l   r } \hline 
+ type & \multicolumn{2}{l}{\hspace{0.5cm} Head-initial\hspace{2cm} Mixed\hspace{2.5cm} Head-final} \\
+ \hline
+ adverbs & \parbox[c]{14em}{\includegraphics[width=5.5cm, height=1.6cm]{adverbs/ADV_ADV_V_HI.pdf}} & \parbox[c]{15em}{\includegraphics[width=5.5cm, height=1.6cm]{adverbs/ADV_ADV_V_HF.pdf}} \\
+adjectives & \parbox[c]{14em}{\includegraphics[width=5.5cm, height=1.6cm]{adjectives/ADJ_ADJ_N_HI.pdf}} & \parbox[c]{15em}{\includegraphics[width=5.5cm, height=1.6cm]{adjectives/ADJ_ADJ_N_HF.pdf}} \\
+ \hline
+  \end{tabular}
+\end{table}
+
+\end{document}

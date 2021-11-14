@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+\begin{document}
+ 
+\begin{dependency}[theme = simple, arc edge, arc angle=85, text only label, label style={above, font = \small} ]
+\begin{deptext}[column sep=.1ex, row sep = .15ex]
+	We \& \textcolor{blue!60}{fit} \&  \textcolor{blue!60}{certainly} \& into \& \textcolor{blue!60}{certain} \& of \&the \&[0.2cm] \textcolor{blue!60}{article} \&[0.2cm] \textcolor{blue!60}{parts}  \\
+	 \footnotesize{PRON} \&  \footnotesize\textcolor{blue!60}{VERB} \&  \footnotesize\textcolor{blue!60}{ADV} \& \footnotesize{ADP} \& \footnotesize\textcolor{blue!60}{ADJ} \& \footnotesize{ADP} \& \footnotesize{DET} \& \footnotesize\textcolor{blue!60}{NOUN} \& \footnotesize\textcolor{blue!60}{NOUN}   \\
+\end{deptext}
+	%\deproot{4}{root}
+	\depedge{2}{1}{nsubj}
+	\depedge[edge style={blue!60}, label style={text=blue!60}]{2}{3}{advmod}
+	\depedge{9}{4}{case}
+	\depedge[edge style={blue!60}, label style={text=blue!60}]{9}{5}{amod}
+	\depedge[edge style={blue!60}, label style={text=blue!60}]{2}{9}{obl}
+	\depedge{8}{7}{det}
+	\depedge[edge style={blue!60}, label style={text=blue!60}]{9}{8}{nmod}
+	\depedge{8}{6}{case}
+\end{dependency}
+\end{document}
