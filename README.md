@@ -29,7 +29,7 @@ gdrive about
 git clone https://github.com/alif-type/libertinus.git
 ```
 
-On mac, you can directly click the `*.otf` file to install the font (font/LibertinusSerif-Regular.otf).
+On mac, you can directly click the `*.otf` file to install the font (font/Libertinus).
 
 ### 6. add simple latex template (`simple.latex` and `simple_format.latex`) to the directory ~/.pandoc/templates/ (create the directory if doesn't exist yet!)
 
