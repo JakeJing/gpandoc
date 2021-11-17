@@ -62,3 +62,9 @@ For `slides.sh`, the default theme is **metroplis**, and you can specify other [
 
 I strongly suggest you to first test the commands in `compile.sh` line by line, and see whether there is any error. **Note:** you need to change the id of your gdoc file in `compile.sh`. If everything works well, you are ready to go. Enjoy it!
 
+
+
+**Some common errors in Rmarkdown:**
+
+Rmarkdown cannot highlight the R syntax in Pandoc, you need to downgrade pandoc into pandoc v1.19.2.1 and R studio into v1.3.1093. In doing so, the R syntax can be recognized correctly.
+
