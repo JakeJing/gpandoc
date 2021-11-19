@@ -53,9 +53,9 @@ The major difference between `simple.latex` and `simple_reformat.latex` is that 
 For `slides.sh`, the default theme is **metroplis**, and you can specify other [themes and colorthemes](https://hartwork.org/beamer-theme-matrix/), and beamer [font themes](https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_font.html).
 
 ```bash
-./compile.sh # first submission (annonymous)
+./compile_pandocv1.sh # first submission (annonymous) for pandoc v1
 
-./compile_format.sh # final submission (with title page)
+./compile_format_pandocv1.sh # final submission (with title page) for pandoc v1
 
 ./slides.sh # compile it into a pdf slide
 ```
