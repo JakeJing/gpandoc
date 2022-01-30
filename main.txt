@@ -1,0 +1,130 @@
+
+
+---
+title: "A simple template for gdoc"
+author: 
+- Yingqi Jing$^{1,2}$
+- Author Two$^3$
+ and Author Three$^1$
+affiliation:
+- $^1$Department of Language and Philology, Uppsala University
+- $^2$Department of Comparative Language Science, University of Zürich
+- $^3$Department of Basic Neuroscience, University of Geneva
+thanks: We would like to thank.
+linestretch: 1.15
+mainfont: Libertinus Serif
+bibliography: bib/references.bib
+csl: bib/unified-style-linguistics.csl
+link-citations: TRUE
+tables: TRUE
+margin: 2.5cm
+header-includes:
+  - \usepackage{standalone}
+  - \usepackage{threeparttablex}
+  - \usepackage{longtable}
+  - \usepackage{amsmath} 
+  - \usepackage{caption}
+  - \usepackage{subcaption}
+  - \usepackage{upgreek}
+  - \usepackage{float}
+  - \usepackage{multirow}
+
+
+abstract: "This is the abstract! This is the abstract of the paper. An abstract summarizes, usually in one paragraph of 300 words or less, the major aspects of the entire paper in a prescribed sequence that includes: 1) the overall purpose of the study and the research problem(s) you investigated; 2) the basic design of the study; 3) major findings or trends found as a result of your analysis; and, 4) a brief summary of your interpretations and conclusions."
+keywords: word order, linguistic typology, language evolution
+---
+
+
+
+
+\setlength{\parskip}{4pt}
+\renewcommand{\labelitemi}{-}
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000        
+
+
+
+
+\let\eachwordone=\itshape
+\let\eachwordtwo=\small
+\def\gltoffset{0.5ex}
+
+
+# Introduction
+This is an introduction [@Kemmerer2012]. 
+\begin{exe} \ex Expectation-based facilitation in German \label{ex-german}
+\begin{xlist}
+\ex \gll Er hat das Buch, [das Lisa gestern gekauft hatte], hingelegt.\\
+         he has the book that Lisa yesterday bought had laid.down\\
+\ex  \gll Er hat das Buch hingelegt, [das Lisa gestern gekauft hatte].\\
+        he has the book laid.down that Lisa yesterday bought had\\
+       \glt ‘He has laid down the book that Lisa had bought yesterday.’ 
+\end{xlist}
+\end{exe}
+
+
+In self-paced reading, the verb is read faster in such examples when it follows the semantically rich and complex noun phrase in \ref{ex-german}a (“the book that Lisa bought yesterday”) than when it follows the short object noun phrase “the book” in \ref{ex-german}b, where the relative clause is extraposed. Since these facilitation effects matter most for long and information-rich dependents, one would expect less variation in placement with longer dependencies (long→head-final→less variable).
+
+
+
+
+# Data and Methods
+This is the section for data and methods. The information of these treebanks is summarized in Table \ref{tab:UD-data}.
+\begin{center}
+\setlength\tabcolsep{2pt}
+\begin{ThreePartTable}
+\footnotesize
+\begin{longtable}[h]{llcrr|llcrr}
+\caption{Overview of 71 dependency treebanks from UD v2.7.\label{tab:UD-data}} \\
+\hline
+\endfirsthead
+\toprule
+\endhead
+\vspace{-0.05cm}
+Language & Family & Europe & Sentences & Word token & Language & Family & Europe & Sentences & Word token\\
+\midrule
+Afrikaans & Indo-European & F & 1,934 & 49,276 & Irish & Indo-European & T & 4,910 & 115,969\\
+Akkadian & Afro-Asiatic & F & 1,804 & 21,962 & Italian & Indo-European & T & 14,167 & 298,343\\
+Ancient Greek & Indo-European & T & 17,080 & 213,999 & Japanese & Japanese & F & 57,028 & 1,250,875\\
+Arabic & Afro-Asiatic & F & 19,738 & 738,889 & Korean & Korean & F & 27,363 & 350,090\\
+Armenian & Indo-European & T & 2,502 & 52,630 & Latin & Indo-European & T & 26,977 & 450,515\\
+Bambara & Mande & F & 1,026 & 13,823 & Latvian & Indo-European & T & 13,643 & 219,955\\
+\bottomrule
+\end{longtable}
+\end{ThreePartTable}
+\end{center}
+
+
+We predict the direction and variation of each word order in a model assuming a Beta-Binomial likelihood function. The Beta-Binomial distribution is a mixture of a Binomial and a Beta distribution.^[This is my footnote.] It generalizes the Binomial distribution, and can capture overdispersion. With the Beta-Binomial model, the Binomial probability is randomly drawn from a Beta distribution $\mathbf{B}\left(\alpha, \beta \right)$ with hyperparameters $\alpha > 0$ and $\beta > 0$. 
+
+
+\begin{equation*}
+\text{Beta2} \left(\mu, \phi \right) = \text{Beta} \left(\alpha = \frac{\mu}{\phi}, \beta = \frac{\left(1 - \mu \right)}{\phi} \right)
+\end{equation*}
+
+
+# Results
+You can put some fancy results here!
+Figure \ref{fig-raw-dist} visualizes the relationship.
+
+
+\captionsetup{margin=1cm}
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=14cm, height=10cm]{figures/relationship between DL and HF-1.pdf}
+\caption{Boxplots for the distribution of raw head-final (HF) dependencies in relation to dependency length (DL) across main and subordinate clauses} 
+\label{fig-raw-dist}
+\end{figure}
+
+
+# Conclusion
+Here is the conclusion.
+\setlength{\parskip}{0pt}
+\raggedright
+\setstretch{1}
+
+
+# References
+
+
