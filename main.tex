@@ -1,120 +1,94 @@
-\documentclass[10pt,a4paper,]{article}
-\usepackage[a4paper,margin=2.5cm]{geometry}
-\usepackage{graphicx}
-\usepackage{setspace}
-\usepackage{sectsty}
-		\allsectionsfont{\bfseries\normalsize} % section header sizes \sffamily
-
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
 \usepackage{lmodern}
-
-\usepackage{xcolor}
-\usepackage{colortbl}
-
-\usepackage[labelfont=bf]{caption}
-\captionsetup{margin=1cm}
-		% \captionsetup{justification=centering} % or font=small, labelfont=bf etc.
-		% \setlength{\abovecaptionskip}{5pt} % caption offset
-		% if captions are too long for a table, squeeze their space by \captionsetup{margin=2cm} inside the local environment (e.g. table)
-
-\renewenvironment{quote}
-  {\list{}{\rightmargin=0cm \leftmargin=.5cm}%
-   \item\relax}
-  {\endlist}
-
 \usepackage{setspace}
-\setstretch{1.15}
-
-\skip\footins 20pt plus4pt minus4pt
-\setlength{\footnotesep}{10pt}
-\usepackage[hang,flushmargin]{footmisc}\renewcommand{\footnotemargin}{\ifnum\value{footnote}<10 5pt \else 9pt\fi}
-
-\clubpenalty = 10000
-\widowpenalty = 10000
-\displaywidowpenalty = 10000
-
-
-% \newlength{\cslhangindent}
-% \setlength{\cslhangindent}{1.5em}
-% \newenvironment{cslreferences}%
-%   {\setlength{\parindent}{0pt}%
-%   \everypar{\setlength{\hangindent}{\cslhangindent}\setlength{\parskip}{0pt}}\ignorespaces}%
-%   {\par}
-
-
-
-
-% \usepackage[compact]{titlesec} % left margin, above-skip and below-kip
-% \titlespacing{\section}{0pt}{8pt}{0pt}
-% \titlespacing{\subsection}{0pt}{8pt}{0pt}
-% \titlespacing{\subsubsection}{0pt}{6pt}{-3pt}
-% \titlespacing{\subsubsubsubsection}{0pt}{3pt}{-3pt}
-% % \titlespacing{\subsubsubsubsection}{0pt}{3pt}{-3pt}
-% \titleformat{\subsubsubsubsection}[runin]{\normalfont\bfseries}{\S\ \thesection.}{.5em}{}[. ]
-% \titlespacing{\subsubsubsubsection}{\parindent}{1.5ex plus .1ex minus .2ex}{0pt}
-% \renewcommand{\subsubsubsection}{\paragraph}
-
-\usepackage{amssymb,amsmath}
+\usepackage{amssymb,amsmath,standalone}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-    \setmainfont[]{Libertinus Serif}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Libertinus Serif}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
-\usepackage[unicode=true]{hyperref}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-            pdftitle={A simple template for gdoc},
-            pdfauthor={Yingqi Jing\^{}\{1,2\}; Author Two\^{}3 and Author Three\^{}1},
-            pdfkeywords={word order, linguistic typology, language evolution},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+  pdftitle={A simple template for gdoc},
+  pdfauthor={Yingqi Jing\^{}\{1,2\}; Author Two\^{}3 and Author Three\^{}1},
+  pdfkeywords={word order, linguistic typology, language evolution},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{longtable,booktabs}
-\usepackage{multirow}
-% Fix footnotes in tables (requires footnote package)
-\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
+\usepackage{standalone}
+\usepackage{threeparttablex}
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{upgreek}
+\usepackage{float}
+\usepackage{multirow}
+%%%% citation %%%%%
+\usepackage{xpatch}
+\usepackage[style=authoryear-comp, % compressed form (e.g., Gibson 1998, 2000)
+	backend=biber,
+	dashed=false, % avoid hide duplicated names in References
+	sorting = none,
+	maxcitenames=3,
+	uniquelist=false, uniquename=false,
+	maxbibnames=99]{biblatex}
+\renewbibmacro{in:}{} % remove in: for journal articles in bibliography
+\DeclareFieldFormat[article, inbook,incollection,inproceedings]{title}{#1} % remove the quotation for title in bibliography
+\DeclareFieldFormat[thesis]{title}{\mkbibitalic{#1}}
+\DeclareFieldFormat[article, inbook,incollection,inproceedings]{pages}{#1} %remove pp. in bibliography
+\addbibresource{bib/references.bib}
 
-% set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
+% 
 
-% gloss formatting
-\usepackage{gb4e,cgloss4e}
-\let\eachwordone=\itshape
-\let\eachwordtwo=\small
-\def\gltoffset{0.5ex}
 
+
+
+%%%% load packages %%%%
+\usepackage{gb4e}
+\noautomath
 \usepackage{standalone}
 \usepackage{threeparttablex}
 \usepackage{longtable}
@@ -125,30 +99,41 @@
 \usepackage{float}
 \usepackage{multirow}
 
-\title{A simple template for gdoc\thanks{We would like to thank.}}
-\author{Yingqi Jing\(^{1,2}\) \and Author Two\(^3\) and Author Three\(^1\)}
-\date{}
+%%%% define dimensions and margins %%%%
+\usepackage[letterpaper,margin=1in]{geometry}
+
+%%%% remove paragraph indentation globally %%%
+\setlength{\parindent}{0pt}
+
+% Keywords command
+\providecommand{\keywords}[1]
+{\small \textit{Keywords:} #1
+}
 
 \begin{document}
 \thispagestyle{empty}
-% \maketitle
 
 \begin{center}
 {\doublespacing
-{\Large\sffamily\bfseries{A simple template for gdoc}}\\[6pt]
+{\Large\sffamily\bfseries{A simple template for gdoc}}
+% \renewcommand*{\thefootnote}{}%
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\footnote{We would like to thank.}
+
 
 {\normalsize Yingqi Jing\(^{1,2}\), Author Two\(^3\) and Author Three\(^1\)}
-\\ % \sf
+
 }
 {\vspace{\baselineskip}\small \(^1\)Department of Language and Philology, Uppsala University, \(^2\)Department of Comparative Language Science, University of Zürich, \(^3\)Department of Basic Neuroscience, University of Geneva}
-
-
 
 \end{center}
 \vspace{6pt}
 
 
-\vspace{\baselineskip}
+\setcounter{footnote}{0}
+
+%%%% abstract %%%%%%
+\newpage
 \begin{abstract}
 This is the abstract! This is the abstract of the paper. An abstract
 summarizes, usually in one paragraph of 300 words or less, the major
@@ -157,7 +142,13 @@ the overall purpose of the study and the research problem(s) you
 investigated; 2) the basic design of the study; 3) major findings or
 trends found as a result of your analysis; and, 4) a brief summary of
 your interpretations and conclusions.
-\end{abstract}\vspace{2\baselineskip}
+\end{abstract}
+% \vspace{\baselineskip}
+%\setlength\parindent{24pt}
+
+\setlength\parindent{24pt} \keywords{word order, linguistic typology, language evolution}
+
+
 
 \setlength{\parskip}{4pt} \renewcommand{\labelitemi}{-} \clubpenalty =
 10000 \widowpenalty = 10000 \displaywidowpenalty = 10000
@@ -168,8 +159,7 @@ your interpretations and conclusions.
 
 \section{Introduction}\label{introduction}
 
-This is an introduction (Kemmerer
-\protect\hyperlink{ref-Kemmerer2012}{2012}).
+This is an introduction \autocite{Kemmerer2012}.
 
 \begin{exe} \ex Expectation-based facilitation in German \label{ex-german}
 \begin{xlist}
@@ -251,15 +241,8 @@ visualizes the relationship.
 Here is the conclusion. \setlength{\parskip}{0pt} \raggedright
 \setstretch{1}
 
-\section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
+\printbibliography[title=References]
 
-\hypertarget{refs}{}
-\hypertarget{ref-Kemmerer2012}{}
-Kemmerer, David. 2012. The Cross-Linguistic Prevalence of SOV and SVO
-Word Orders Reflects the Sequential and Hierarchical Representation of
-Action in Broca's area. \emph{Language and Linguistics Compass} 6.
-50--66.
 
 %TC:endignore
 \end{document}

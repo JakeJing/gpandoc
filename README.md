@@ -60,7 +60,49 @@ For `slides.sh`, the default theme is **metroplis**, and you can specify other [
 ./slides.sh # compile it into a pdf slide
 ```
 
-I strongly suggest you to first test the commands in `compile.sh` line by line, and see whether there is any error. **Note:** you need to change the id of your gdoc file in `compile.sh`. If everything works well, you are ready to go. Enjoy it!
+I strongly suggest you to first test the commands in `compile_pandocv1.sh` line by line, and see whether there is any error. **Note:** you need to change the id of your gdoc file in `compile_pandocv1.sh`. 
+
+### 10. submit the latex files (*.tex, *.bib, *.bbl, and *.pdf)
+
+To render the *.tex into a pdf, you need to replace the default "bibtex" with "biber" in your TexShop, and you can also change the default **typesetting** as "XeLaTex".
+
+```
+Preference - Engine - Replace the default "bibtex" with "biber"
+```
+
+After that, you should be able to run BibTex with biber as backend, and run xelatex.
+
+
+
+Alternatively, you can use **arara** to render the tex file.
+
+Here is a very useful instruction on [how to use arara in TexShop](https://tex.stackexchange.com/questions/175671/how-to-use-arara-with-texshop).
+
+There is already an `arara` engine in TeXShop, and `arara` is already installed as part of TeXLive. Move the `arara` engine from the `~/Library/TeXShop/Engines/Inactive` folder to the `Engines` folder itself. Then restart TeXShop.
+
+```bash
+# make arara engine executble
+chmod +x ~/Library/TeXShop/Engines/arara.engine
+```
+
+**Note:** the **arara.engine** is just a raw bash script, and you can directly define your own engine in this folder.
+
+In your document add the line at the beginning of your tex file:
+
+```tex
+% !TEX TS-program = arara
+% arara: xelatex
+% arara: biber
+% arara: xelatex
+```
+
+Alternatively, you can directly run the follwoing command and render the tex file in your terminal.
+
+```bash
+arara manuscript.tex
+```
+
+If everything works well, you are ready to go. Enjoy it!
 
 
 
