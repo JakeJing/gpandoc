@@ -1,3 +1,6 @@
+% arara: xelatex
+% arara: biber
+% arara: xelatex
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
@@ -459,7 +462,14 @@ $if(thanks)$
 $endif$
 
 $if(subtitle)${\Large\sffamily{--- $subtitle$ ---}}\\[6pt]$endif$
-$if(author)${\normalsize $for(author)$$author$$sep$, $endfor$}$endif$
+%$if(author)${\normalsize $for(author)$$author$$sep$, $endfor$}$endif$
+$for(author)$
+$if(author.name)$
+$author.name$$if(author.affiliation)$ ($author.affiliation$)$endif$
+$else$
+$author$
+$endif$
+$endfor$
 
 }
 $if(affiliation)${\vspace{\baselineskip}\small $for(affiliation)$$affiliation$$sep$, $endfor$}$endif$

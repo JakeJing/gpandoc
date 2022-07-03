@@ -11,10 +11,11 @@ pandoc --citeproc --lua-filter=lua-filters/scholarly-metadata/scholarly-metadata
 
 sed -e 's/\\leavevmode/\\leavevmode\\hangindent=.7cm/g' mainr.tex | gsed -e 's/.*\hypertarget{references}.*/%TC:ignore\n\n&/' -e 's/.*\end{document}.*/%TC:endignore\n&/' > main.tex
 
-xelatex -output-driver="xdvipdfmx -E -q" -synctex=0 main.tex
-# run the main.tex and get the main.aux for bibtex (citation)
-biber main
-xelatex -output-driver="xdvipdfmx -E -q" -synctex=0 main.tex
+arara main.tex
+# xelatex -output-driver="xdvipdfmx -E -q" -synctex=0 main.tex
+# # run the main.tex and get the main.aux for bibtex (citation)
+# biber main
+# xelatex -output-driver="xdvipdfmx -E -q" -synctex=0 main.tex
 
 rm mainr.tex
 rm main.out
