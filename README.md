@@ -64,7 +64,23 @@ I strongly suggest you to first test the commands in `compile_pandocv1.sh` line 
 
 ### 10. submit the latex files (*.tex, *.bib, *.bbl, and *.pdf)
 
-To render the *.tex into a pdf, you need to replace the default "bibtex" with "biber" in your TexShop, and you can also change the default **typesetting** as "XeLaTex".
+- **Method 1:** (recommended): I created my own latex engine (**doc-tex.engine**) and you can include it in this address <u>~/Library/TeXShop/Engines/gdoc-tex.engine.</u> 
+
+```bash
+#!/bin/tcsh
+set path=($path /Library/TeX/texbin /usr/texbin /usr/local/bin)
+set filename="$1"
+set rootname=`basename $filename .tex`
+lualatex -file-line-error -synctex=1 "$filename"
+biber "$rootname"
+lualatex -file-line-error -synctex=1 "$filename"
+```
+
+With this, you can directly use the gdoc-tex engine to compile the **main.tex** file into a pdf.
+
+
+
+- **Method 2:** To render the *.tex into a pdf, you need to replace the default "bibtex" with "biber" in your TexShop, and you can also change the default **typesetting** as "XeLaTex".
 
 ```
 Preference - Engine - Replace the default "bibtex" with "biber"
@@ -74,7 +90,7 @@ After that, you should be able to run BibTex with biber as backend, and run xela
 
 
 
-Alternatively, you can use **arara** to render the tex file.
+- **Method 3:** you can use **arara** to render the tex file.
 
 Here is a very useful instruction on [how to use arara in TexShop](https://tex.stackexchange.com/questions/175671/how-to-use-arara-with-texshop).
 
