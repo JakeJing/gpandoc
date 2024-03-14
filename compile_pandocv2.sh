@@ -8,7 +8,8 @@ gsed -e '0,/BEGINFILE/d' -e '/ENDFILE/,$d' sample_paper.conf | sed -e '/________
 # this name also need to be changed according to the name of the .gdoc file.
 rm sample_paper.conf
 
-pandoc --citeproc --template=templates/simple.latex --pdf-engine=xelatex -F glosses.py -M secPrefix=Section -N main.txt -o mainr.tex 2> pandoc-errors.txt
+pandoc --biblatex --template=templates/simple.latex --pdf-engine=xelatex -F glosses.py -M secPrefix=Section -N main.txt -o mainr.tex 2> pandoc-errors.txt
+# pandoc --citeproc --template=templates/simple.latex --pdf-engine=xelatex -F glosses.py -M secPrefix=Section -N main.txt -o mainr.tex 2> pandoc-errors.txt
 
 # pandoc --citeproc --lua-filter=lua-filters/scholarly-metadata/scholarly-metadata.lua --lua-filter=lua-filters/author-info-blocks/author-info-blocks.lua --pdf-engine=xelatex -F /usr/local/bin/glosses.py -M secPrefix=Section -N main.txt -o mainr.tex 2> pandoc-errors.txt
 
@@ -16,6 +17,7 @@ pandoc --citeproc --template=templates/simple.latex --pdf-engine=xelatex -F glos
 sed -e 's/\\leavevmode/\\leavevmode\\hangindent=.7cm/g' mainr.tex | gsed -e 's/.*\hypertarget{references}.*/%TC:ignore\n\n&/' -e 's/.*\end{document}.*/%TC:endignore\n&/' > main.tex
 
 xelatex -output-driver="xdvipdfmx -E -q" -synctex=0 main.tex
+biber main
 xelatex -output-driver="xdvipdfmx -E -q" -synctex=0 main.tex
 
 rm mainr.tex
