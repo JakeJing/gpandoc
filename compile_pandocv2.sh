@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # Note: the id (1xOjDwPo2gGC3dM5DeT30H_-r7ZeYV0wBQsoxCKAhAmI) should be changed according to your gdoc fiel id.
-gdrive export --force --mime text/plain 1xOjDwPo2gGC3dM5DeT30H_-r7ZeYV0wBQsoxCKAhAmI
+gdrive files export --overwrite 1xOjDwPo2gGC3dM5DeT30H_-r7ZeYV0wBQsoxCKAhAmI sample_paper.txt
 
-gsed -e '0,/BEGINFILE/d' -e '/ENDFILE/,$d' sample_paper.conf | sed -e '/________________/d' > main.txt
+gsed -e '0,/BEGINFILE/d' -e '/ENDFILE/,$d' sample_paper.txt| sed -e '/________________/d' > main.txt
 
 # this name also need to be changed according to the name of the .gdoc file.
-rm sample_paper.conf
+rm sample_paper.txt
 
 pandoc --biblatex --template=templates/simple.latex --pdf-engine=xelatex -F glosses.py -M secPrefix=Section -N main.txt -o mainr.tex 2> pandoc-errors.txt
 # pandoc --citeproc --template=templates/simple.latex --pdf-engine=xelatex -F glosses.py -M secPrefix=Section -N main.txt -o mainr.tex 2> pandoc-errors.txt
