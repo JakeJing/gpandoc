@@ -20,7 +20,9 @@ which xelatex
 brew install gnu-sed
 brew install gdrive
 gdrive about 
+gdrive account add
 # test the gdrive, and it may require verification. Just follow the instructions from the screen.
+gdrive account list
 ```
 
 ### 5. install fonts of Libertinus Serif
